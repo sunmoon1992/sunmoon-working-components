@@ -1,0 +1,6 @@
+/// <reference types="vite/client" />
+
+declare module "b-tween";
+declare module "numeral";
+declare module "react-window";
+declare module "react-window-infinite-loader";
