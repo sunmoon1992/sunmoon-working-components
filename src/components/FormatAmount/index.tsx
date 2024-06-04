@@ -6,7 +6,7 @@ import { FormatAmountProps } from "./interface";
 const o = (value: string | number, decimal = 8, local?: boolean): string => {
   const base = String(value);
   const _value = f(base.indexOf(".") > -1 ? base : `${base}.0`, decimal)
-  return local ? _value.toLocaleString() : _value;
+  return local ? Number(_value).toLocaleString() : _value;
 };
 
 const f = (value: string, decimal = 8): string => {

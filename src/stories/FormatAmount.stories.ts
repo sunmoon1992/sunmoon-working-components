@@ -26,9 +26,10 @@ export const Demo1: Story = {
 };
 export const Demo2: Story = {
   args: {
-    amount: "10000",
+    local: true,
+    amount: "110000.12",
     decimals: 8,
-    format:'0,'
+    // format:'0,'
   },
 };
 export const Demo3: Story = {
