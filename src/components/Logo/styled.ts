@@ -33,8 +33,8 @@ export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: numb
   }
 
   @media screen and (max-width: 500px) {
-    width: ${props => props?.$size ?? 20}px;
-    height: ${props => props?.$size ?? 20}px;
+    width: ${props => props?.$size ?? 24}px;
+    height: ${props => props?.$size ?? 24}px;
   }
 
   &.wrapper {
