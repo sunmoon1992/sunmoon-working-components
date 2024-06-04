@@ -35,6 +35,17 @@ export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: numb
     width: ${props => props?.$size ?? 20}px;
     height: ${props => props?.$size ?? 20}px;
   }
+  
+  &.wrapper {
+    background-image: linear-gradient(to right, #12c2e9 , #c471ed);
+    clip-path: circle(0px at 0 0px);  /*初始的时候大小为0，不显示*/
+    animation: clipPathAn 2s infinite;
+
+    @keyframes clipPathAn {
+      from { clip-path: circle(0px at 0 0px);  }
+      to { clip-path: circle(110% at 0 34px); }  /* 结束时大小变为200%，超出实际大小的隐藏，所以这里还是显示的原大小，也就是100%，这里变为200%是因为锚点在最左侧，100%只能显示原图的一半，所以要写成200%。 */
+    }
+  }
 `
 
 export const Missing = styled.div<{ $color?: string, $bColor?: string }>`

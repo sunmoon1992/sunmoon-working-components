@@ -2,6 +2,7 @@ import { _Logo } from "./styled";
 import { FC} from "react";
 import { LogoProps } from "./interface";
 import _Image from "./Image";
+import classNames from "classnames";
 
 const Logo: FC<LogoProps> = (
   {
@@ -14,6 +15,7 @@ const Logo: FC<LogoProps> = (
     border,
     radius = 0,
     bColor,
+    wrapper,
     borderColor,
   }) => {
   return (
@@ -23,7 +25,7 @@ const Logo: FC<LogoProps> = (
       $border={border}
       $borderColor={borderColor}
       $zIndex={count - index}
-      className={'logo'}
+      className={classNames('logo', { wrapper })}
     >
       <_Image color={color} bColor={bColor} src={src ?? ''} alt={alt ?? ''}/>
     </_Logo>
