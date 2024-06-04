@@ -16,7 +16,7 @@ export const _Group = styled.div<{ $size?: number, $mLeft?: number }>`
 
 export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: number, $border?: boolean, $borderColor?: string }>`
   z-index: ${(props) => props.$zIndex};
-  border-radius: ${(props) => props?.$radius >= 0 ? props?.$radius + 'px' : '100%'};
+  border-radius: ${(props) => props?.$radius || '100%'};
   border-width: ${(props) => props?.$border ? 2 : 0}px;
   border-color: ${(props) => props?.$borderColor ?? '#222'};
   background-color: ${(props) => props?.$borderColor ?? '#222'};
