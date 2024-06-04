@@ -16,7 +16,7 @@ export interface LogoProps {
   radius?: number
   border?: boolean
   bColor?: string
-  wrapper?: string
+  wrapper?: boolean
   borderColor?: string
 }
 

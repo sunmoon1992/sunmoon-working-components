@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 const Logos = () => {
   return (
-    <Logo src="https://assets.coingecko.com/coins/images/29850/standard/pepe-token.jpeg?1696528776"/>
+    <Logo wrapper src="https://assets.coingecko.com/coins/images/29850/standard/pepe-token.jpeg?1696528776"/>
     // <Group mLeft={-10}>
     //   <Logo src="https://static.benchmark.meme/image/chains/ethereum.svg"/>
     //   <Logo src="https://static.benchmark.meme/image/chains/base.svg"/>

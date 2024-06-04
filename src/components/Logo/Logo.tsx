@@ -1,5 +1,5 @@
 import { _Logo } from "./styled";
-import { FC} from "react";
+import { FC } from "react";
 import { LogoProps } from "./interface";
 import _Image from "./Image";
 import classNames from "classnames";
@@ -27,6 +27,11 @@ const Logo: FC<LogoProps> = (
       $zIndex={count - index}
       className={classNames('logo', { wrapper })}
     >
+      {
+        wrapper && (
+          <i/>
+        )
+      }
       <_Image color={color} bColor={bColor} src={src ?? ''} alt={alt ?? ''}/>
     </_Logo>
   );

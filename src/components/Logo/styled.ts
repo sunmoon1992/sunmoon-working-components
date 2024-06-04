@@ -16,7 +16,7 @@ export const _Group = styled.div<{ $size?: number, $mLeft?: number }>`
 
 export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: number, $border?: boolean, $borderColor?: string }>`
   z-index: ${(props) => props.$zIndex};
-  border-radius: ${(props) => props?.$radius ? props?.$radius + 'px' : '100%'};
+  border-radius: ${(props) => props?.$radius >= 0 ? props?.$radius + 'px' : '100%'};
   border-width: ${(props) => props?.$border ? 2 : 0}px;
   border-color: ${(props) => props?.$borderColor ?? '#222'};
   background-color: ${(props) => props?.$borderColor ?? '#222'};
@@ -35,17 +35,41 @@ export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: numb
     width: ${props => props?.$size ?? 20}px;
     height: ${props => props?.$size ?? 20}px;
   }
-  
-  &.wrapper {
-    background-image: linear-gradient(to right, #12c2e9 , #c471ed);
-    clip-path: circle(0px at 0 0px);  /*初始的时候大小为0，不显示*/
-    animation: clipPathAn 2s infinite;
 
-    @keyframes clipPathAn {
-      from { clip-path: circle(0px at 0 0px);  }
-      to { clip-path: circle(110% at 0 34px); }  /* 结束时大小变为200%，超出实际大小的隐藏，所以这里还是显示的原大小，也就是100%，这里变为200%是因为锚点在最左侧，100%只能显示原图的一半，所以要写成200%。 */
+  &.wrapper {
+    padding: 2px;
+    position: relative;
+    background-color: transparent;
+
+    img {
+      z-index: 2;
+      position: absolute;
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      border-radius: 100%
+    }
+
+    i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 100%;
+      background: linear-gradient(#ff794a, #f04d7a, #9544c5);
+      animation: animate 0.5s linear infinite;
+    }
+
+    @keyframes animate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
+}
 `
 
 export const Missing = styled.div<{ $color?: string, $bColor?: string }>`
