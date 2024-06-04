@@ -5,6 +5,7 @@ import Countdown from "./components/Countdown";
 import OGP, { OGPProvider } from "./components/OGP";
 import Video from "./components/Video";
 import Loading from "./components/Loading";
+import Logo from "./components/Logo/out";
 import { useSmoothScrollTo } from "./hooks/useSmoothScrollTo";
 
 export type { VideoProps } from "./components/Video/interface";
@@ -14,9 +15,11 @@ export type { StatisticProps } from "./components/Statistic/interface";
 export type { FormatAmountProps } from "./components/FormatAmount/interface";
 export type { OGPProps } from "./components/OGP/interface";
 export type { LoadingProps } from "./components/Loading/interface";
+export type { GroupProps, LogoProps } from "./components/Logo/interface";
 
 export {
   OGP,
+  Logo,
   Video,
   Loading,
   Countdown,
@@ -26,3 +29,4 @@ export {
   useSmoothScrollTo,
   OGPProvider,
 };
+

@@ -34,7 +34,6 @@ export const Demo1: Story = {
 export const Demo2: Story = {
   args: {
     end: N + 10 * 1000,
-    start: N + 5 * 1000,
     interval: 25,
     showMilliseconds: true,
     onProgress: (v) => console.info(v),

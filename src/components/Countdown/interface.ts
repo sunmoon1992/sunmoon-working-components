@@ -2,7 +2,7 @@ import * as React from "react";
 
 export interface CountdownProps {
   end: number;
-  start: number;
+  start?: number;
   notStartText?: string;
   deadlineText?: string;
   interval?: number;

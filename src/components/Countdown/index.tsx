@@ -58,7 +58,7 @@ const Countdown = ({
     timerRef.current = setInterval(function () {
       const current = dayjs().valueOf();
 
-      if (current < start) {
+      if (start && current < start) {
         diff = dayjs(start).diff(dayjs(), "millisecond");
         setTimeLabel("notStartText");
       } else {
@@ -94,13 +94,13 @@ const Countdown = ({
   }, [end, start]);
 
   useLayoutEffect(() => {
-    if (!timerRef.current && start && end) {
+    if (!timerRef.current && end) {
       startTimer();
     }
     return () => {
       stopTimer();
     };
-  }, [end, start]);
+  }, [end]);
 
   const progress = useMemo(() => {
     const diff = dayjs(end).diff(now);
