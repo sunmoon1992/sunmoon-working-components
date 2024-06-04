@@ -14,7 +14,7 @@ export const _Group = styled.div<{ $size?: number, $mLeft?: number }>`
   }
 `;
 
-export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: number, $border?: boolean, $borderColor?: string }>`
+export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: number, $border?: boolean, $borderColor?: string, $wrapper?: string[] }>`
   z-index: ${(props) => props.$zIndex};
   border-radius: ${(props) => props?.$radius || '100%'};
   border-width: ${(props) => props?.$border ? 2 : 0}px;
@@ -56,7 +56,7 @@ export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: numb
       right: 0;
       bottom: 0;
       border-radius: 100%;
-      background: linear-gradient(#ff794a, #f04d7a, #9544c5);
+      background: linear-gradient(${props => (props?.$wrapper ?? ['#ff794a, #f04d7a, #9544c5']).join(',')});
       animation: animate 0.5s linear infinite;
     }
 

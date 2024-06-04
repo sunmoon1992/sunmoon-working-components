@@ -17,6 +17,7 @@ export interface LogoProps {
   border?: boolean
   bColor?: string
   wrapper?: boolean
+  wrapperColor?: string[]
   borderColor?: string
 }
 

@@ -17,12 +17,14 @@ const Logo: FC<LogoProps> = (
     bColor,
     wrapper,
     borderColor,
+    wrapperColor,
   }) => {
   return (
     <_Logo
       $size={size}
       $radius={radius}
       $border={border}
+      $wrapper={wrapperColor}
       $borderColor={borderColor}
       $zIndex={count - index}
       className={classNames('logo', { wrapper })}
