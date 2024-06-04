@@ -25,6 +25,8 @@ export const _Logo = styled.div<{ $size?: number, $radius: number, $zIndex: numb
   overflow: hidden;
   width: ${props => props?.$size ?? 32}px;
   height: ${props => props?.$size ?? 32}px;
+  display: flex;
+  align-items: center;
 
   img {
     width: 100%;
