@@ -25,7 +25,7 @@ const base = {
   ],
 };
 
-export const Container = styled.div<{ $color?: string; $fontSize?: string }>`
+export const Container = styled.div<{ $color?: string; $fontSize?: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
