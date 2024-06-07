@@ -19,6 +19,7 @@ const InfiniteTable = (
     itemCount = 10,
     rowHeight = size.height,
     tableHeight = '100%',
+    borderCr,
     tableHeadBg,
     containerBg,
     tableHeadCr,
@@ -49,6 +50,7 @@ const InfiniteTable = (
                         : _rowHeight}
                     className="table"
                     $border={border}
+                    $borderCr={borderCr}
                     $tableHeadBg={tableHeadBg}
                     $tableHeadCr={tableHeadCr}
                     $gridTemplateColumns={gridTemplateColumns || Array.from({ length: columns.length }, () => '1fr')}>

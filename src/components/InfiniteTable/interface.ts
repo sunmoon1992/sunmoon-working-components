@@ -14,6 +14,7 @@ export interface InfiniteTableProps {
   loading?: boolean,
   rowHeight?: number,
   itemCount?: number,
+  borderCr?: string,
   tableHeight?: string,
   tableHeadBg?: string,
   containerBg?: string,

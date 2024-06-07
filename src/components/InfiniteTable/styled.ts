@@ -4,6 +4,7 @@ import { size } from "./interface";
 export const Table = styled.section<{
   $height?: number;
   $border?: boolean;
+  $borderCr?: string;
   $tableHeadBg?: string;
   $tableHeadCr?: string;
   $gridTemplateColumns: string[];
@@ -47,7 +48,7 @@ export const Table = styled.section<{
     padding: 0 0.5em;
     border-style: solid;
     border-width: ${props => props.$border ? '0 1px 1px 0' : 0};
-    border-color: #39393e;
+    border-color: ${props => props.$borderCr || '#39393e'};
     box-sizing: border-box;
     display: flex;
     align-items: center;
