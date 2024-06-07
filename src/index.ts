@@ -6,9 +6,11 @@ import OGP, { OGPProvider } from "./components/OGP";
 import Video from "./components/Video";
 import Loading from "./components/Loading";
 import Logo from "./components/Logo/out";
+import Copy from "./components/Copy";
 import InfiniteTable from "./components/InfiniteTable";
 import { useSmoothScrollTo } from "./hooks/useSmoothScrollTo";
 
+export type { CopyProps } from "./components/Copy/interface";
 export type { VideoProps } from "./components/Video/interface";
 export type { InfiniteTableProps, InfiniteTableColumnProps } from "./components/InfiniteTable/interface";
 export type { CountdownProps } from "./components/Countdown/interface";
@@ -20,6 +22,7 @@ export type { LoadingProps } from "./components/Loading/interface";
 export type { GroupProps, LogoProps } from "./components/Logo/interface";
 
 export {
+  Copy,
   OGP,
   Logo,
   Video,
