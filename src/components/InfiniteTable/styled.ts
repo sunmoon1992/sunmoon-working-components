@@ -8,7 +8,6 @@ export const Table = styled.section<{
   $tableHeadCr?: string;
   $gridTemplateColumns: string[];
 }>`
-  color: #fff;
   font-size: 14px;
 
   ::-webkit-scrollbar {
@@ -47,7 +46,7 @@ export const Table = styled.section<{
   .table-tbody-td {
     padding: 0 0.5em;
     border-style: solid;
-    border-width: ${props => props.$border ? '0 1px 1px 0' : 'none'};
+    border-width: ${props => props.$border ? '0 1px 1px 0' : 0};
     border-color: #39393e;
     box-sizing: border-box;
     display: flex;
