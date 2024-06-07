@@ -13,10 +13,15 @@ import CTableThead from "./TableHead";
 const InfiniteTable = (
   {
     data,
+    color,
     columns,
+    border,
     itemCount = 10,
     rowHeight = size.height,
     tableHeight = '100%',
+    tableHeadBg,
+    containerBg,
+    tableHeadCr,
     hasNextPage,
     isNextPageLoading,
     gridTemplateColumns,
@@ -31,7 +36,7 @@ const InfiniteTable = (
     <Measure bounds>
       {({ measureRef, contentRect }: any) => {
         return (
-          <Container ref={measureRef} $tableHeight={tableHeight} id='table'>
+          <Container ref={measureRef} $color={color} $containerBg={containerBg} $tableHeight={tableHeight} id='table'>
             <AutoSizer disableWidth>
               {({ height }: { height: number }) => {
                 const boundsWidth = contentRect.bounds.width >= size.screen
@@ -43,6 +48,9 @@ const InfiniteTable = (
                         ? rowHeight
                         : _rowHeight}
                     className="table"
+                    $border={border}
+                    $tableHeadBg={tableHeadBg}
+                    $tableHeadCr={tableHeadCr}
                     $gridTemplateColumns={gridTemplateColumns || Array.from({ length: columns.length }, () => '1fr')}>
                     <CTableThead columns={columns}/>
                     <CTableBody data={data} loading={isNextPageLoading}>

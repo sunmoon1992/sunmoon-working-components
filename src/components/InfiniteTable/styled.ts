@@ -3,6 +3,9 @@ import { size } from "./interface";
 
 export const Table = styled.section<{
   $height?: number;
+  $border?: boolean;
+  $tableHeadBg?: string;
+  $tableHeadCr?: string;
   $gridTemplateColumns: string[];
 }>`
   color: #fff;
@@ -36,14 +39,15 @@ export const Table = styled.section<{
   }
 
   .table-thead-td {
-    background-color: #2e2e33;
+    color: ${props => props.$tableHeadCr || '#6f6e84'};
+    background-color: ${props => props.$tableHeadBg || '#2e2e33'};
   }
 
   .table-thead-td,
   .table-tbody-td {
     padding: 0 0.5em;
     border-style: solid;
-    border-width: 0 1px 1px 0;
+    border-width: ${props => props.$border ? '0 1px 1px 0' : 'none'};
     border-color: #39393e;
     box-sizing: border-box;
     display: flex;
@@ -102,11 +106,12 @@ export const Nothing = styled.div`
   text-align: center;
 `;
 
-export const Container = styled.div<{ $tableHeight: string }>`
+export const Container = styled.div<{ $color?: string, $containerBg?: string, $tableHeight: string }>`
   width: 100%;
+  color: ${(props) => props.$color || '#c3c2d4'};
   height: ${(props) => props.$tableHeight};
   overflow: hidden;
-  background-color: #1d1d22;
+  background-color: ${props => props.$containerBg || '#1d1d22'};
 `;
 
 export const TableHead = styled.section``;

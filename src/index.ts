@@ -10,7 +10,7 @@ import InfiniteTable from "./components/InfiniteTable";
 import { useSmoothScrollTo } from "./hooks/useSmoothScrollTo";
 
 export type { VideoProps } from "./components/Video/interface";
-export type { InfiniteTableProps } from "./components/InfiniteTable/interface";
+export type { InfiniteTableProps, InfiniteTableColumnProps } from "./components/InfiniteTable/interface";
 export type { CountdownProps } from "./components/Countdown/interface";
 export type { CheckCardProps } from "./components/CheckCard/interface";
 export type { StatisticProps } from "./components/Statistic/interface";
