@@ -23,28 +23,28 @@ const Copy = ({ text, width, height, fill1, fill2, stroke1, stroke2 }: CopyProps
     return () => clearTimeout(t)
   }, [v])
 
-  return (
-    <CopyToClipboard
-      text={text}
-      onCopy={() => setV(true)}>
-      <C>
-        {!v
-          ? <CopySvg
-            width={width}
-            height={height}
-            fill1={fill1}
-            fill2={fill2}
-            stroke2={stroke2}
-            stroke1={stroke1}/>
-          : <CopySuccessSvg
-            width={width}
-            height={height}
-            fill1={fill1}
-            fill2={fill2}
-            stroke2={stroke2}
-            stroke1={stroke1}/>}
-      </C>
-    </CopyToClipboard>
+  return (text ?
+      <CopyToClipboard
+        text={text}
+        onCopy={() => setV(true)}>
+        <C>
+          {!v
+            ? <CopySvg
+              width={width}
+              height={height}
+              fill1={fill1}
+              fill2={fill2}
+              stroke2={stroke2}
+              stroke1={stroke1}/>
+            : <CopySuccessSvg
+              width={width}
+              height={height}
+              fill1={fill1}
+              fill2={fill2}
+              stroke2={stroke2}
+              stroke1={stroke1}/>}
+        </C>
+      </CopyToClipboard> : null
   )
 }
 
