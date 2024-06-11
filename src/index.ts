@@ -8,8 +8,10 @@ import Loading from "./components/Loading";
 import Logo from "./components/Logo/out";
 import Copy from "./components/Copy";
 import InfiniteTable from "./components/InfiniteTable";
+import HideString from "./components/HideString";
 import { useSmoothScrollTo } from "./hooks/useSmoothScrollTo";
 
+export type { HideStringProps } from "./components/HideString/interface";
 export type { CopyProps } from "./components/Copy/interface";
 export type { VideoProps } from "./components/Video/interface";
 export type { InfiniteTableProps, InfiniteTableColumnProps } from "./components/InfiniteTable/interface";
@@ -30,6 +32,7 @@ export {
   Countdown,
   CheckCard,
   Statistic,
+  HideString,
   FormatAmount,
   useSmoothScrollTo,
   OGPProvider,
