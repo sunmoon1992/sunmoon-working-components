@@ -68,9 +68,16 @@ const C = styled.div<{ $fontSize?: string, $textColor?: string, $beforeShadowCol
 
 `
 
-const MagicText = ({ text }: MagicTextProps) => {
+const MagicText = ({ text, fontSize, textColor, afterShadowColor, beforeShadowColor }: MagicTextProps) => {
   return (
-    <C className="magic-text" data-word={text}/>
+    <C
+      className="magic-text"
+      data-word={text}
+      $fontSize={fontSize}
+      $textColor={textColor}
+      $afterShadowColor={afterShadowColor}
+      $beforeShadowColor={beforeShadowColor}
+    />
   )
 }
 
