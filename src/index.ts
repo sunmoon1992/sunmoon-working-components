@@ -9,8 +9,10 @@ import Logo from "./components/Logo/out";
 import Copy from "./components/Copy";
 import InfiniteTable from "./components/InfiniteTable";
 import HideString from "./components/HideString";
+import MagicText from "./components/MagicText";
 import { useSmoothScrollTo } from "./hooks/useSmoothScrollTo";
 
+export type { MagicTextProps } from "./components/MagicText/interface";
 export type { HideStringProps } from "./components/HideString/interface";
 export type { CopyProps } from "./components/Copy/interface";
 export type { VideoProps } from "./components/Video/interface";
@@ -33,6 +35,7 @@ export {
   CheckCard,
   Statistic,
   HideString,
+  MagicText,
   FormatAmount,
   useSmoothScrollTo,
   OGPProvider,
