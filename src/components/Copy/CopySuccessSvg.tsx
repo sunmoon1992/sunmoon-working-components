@@ -12,7 +12,7 @@ const CopySuccessSvg = (
     fill1 = '#292D32',
     fill2 = '#292D32',
     stroke1 = 'currentColor',
-    stroke2 = '#7fff00',
+    stroke2 = '#4adcb3',
   }: Props) => {
   return (
     <svg width={width} height={height} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
