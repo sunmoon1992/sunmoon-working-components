@@ -24,6 +24,7 @@ const Logo: FC<LogoProps> = (
       $size={size}
       $radius={radius}
       $border={border}
+      $bColor={bColor}
       $wrapper={wrapperColor}
       $borderColor={borderColor}
       $zIndex={count - index}
