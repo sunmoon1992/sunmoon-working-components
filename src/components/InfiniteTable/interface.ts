@@ -3,7 +3,7 @@ export interface InfiniteTableColumnProps {
   index: string;
   width?: string;
   align?: "right" | "left" | "center";
-  render?: (v: any, index?: number) => JSX.Element;
+  render?: (v: any, index?: number, data?: any) => JSX.Element;
 }
 
 export interface InfiniteTableProps {

@@ -39,7 +39,7 @@ const CTableBodyTr = (
                 >
                   {loading
                     ? (<Skeleton color={['#2e2e33','#2E2E3380']} animation loading/>)
-                    : (c.render ? c.render(data[c.index], index) : data[c.index])}
+                    : (c.render ? c.render(data[c.index], index, data) : data[c.index])}
                 </TableBodyTd>
               ))
             }
