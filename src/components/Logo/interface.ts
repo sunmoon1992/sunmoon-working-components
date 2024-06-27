@@ -13,7 +13,7 @@ export interface LogoProps {
   count?: number
   index?: number
   color?: string
-  radius?: number
+  radius?: string
   border?: boolean
   bColor?: string
   wrapper?: boolean

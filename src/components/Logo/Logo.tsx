@@ -13,7 +13,7 @@ const Logo: FC<LogoProps> = (
     index = 0,
     color,
     border,
-    radius = 0,
+    radius = '',
     bColor,
     wrapper,
     borderColor,
