@@ -128,7 +128,7 @@ const Countdown = ({
           <>
             <span>
               {estimatedTime[0]}
-              {unit?.[0]}
+              <em>{unit?.[0]}</em>
             </span>
             :
           </>
