@@ -12,6 +12,7 @@ export interface LogoProps {
   size?: number
   count?: number
   index?: number
+  slice?: number
   color?: string
   radius?: string
   border?: boolean
@@ -24,6 +25,7 @@ export interface LogoProps {
 export interface ImageProps {
   src: string
   alt: string
+  slice?: number
   color?: string
   bColor?: string
 }

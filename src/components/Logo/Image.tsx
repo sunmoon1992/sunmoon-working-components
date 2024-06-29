@@ -8,13 +8,14 @@ function _Image(
     src,
     alt,
     color,
+    slice = 3,
     bColor
   }: ImageProps) {
   const [url, nextURL] = useImgSrcLoad(src)
 
   return useMemo(() => {
     if (url) return <img src={url} onError={nextURL} alt={alt}/>;
-    return <Missing $color={color} $bColor={bColor} className="missing">{alt.slice(0, 3)}</Missing>;
+    return <Missing $color={color} $bColor={bColor} className="missing">{alt.slice(0, slice)}</Missing>;
   }, [url, nextURL]);
 }
 

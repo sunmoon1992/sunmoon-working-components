@@ -10,6 +10,7 @@ const Logo: FC<LogoProps> = (
     alt,
     size,
     count = 0,
+    slice,
     index = 0,
     color,
     border,
@@ -35,7 +36,7 @@ const Logo: FC<LogoProps> = (
           <i/>
         )
       }
-      <_Image color={color} bColor={bColor} src={src ?? ''} alt={alt ?? ''}/>
+      <_Image slice={slice} color={color} bColor={bColor} src={src ?? ''} alt={alt ?? ''}/>
     </_Logo>
   );
 };
