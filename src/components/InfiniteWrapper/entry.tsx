@@ -1,6 +1,7 @@
 import InfiniteTable from "./index";
 import { useCallback, useState } from "react";
 import { faker } from "@faker-js/faker";
+import Logo from "../Logo/Logo";
 
 interface TableState {
   items: any[]
@@ -17,32 +18,6 @@ const initTableState: TableState = {
 const Entry = () => {
   const [tableState, setTableState] = useState<TableState>(initTableState)
 
-  const columns = [
-    {
-      name: 'firstName',
-      index: 'firstName',
-      width: '120px',
-    },
-    {
-      name: 'lastName',
-      index: 'lastName',
-      // width: '200px',
-      render: (v: any) => <b style={{ color: 'red' }}>{v}</b>
-    },
-    {
-      name: 'fullName',
-      index: 'fullName',
-      // width: '200px',
-      render: (v: any) => <b style={{ color: 'red' }}>{v}</b>
-    },
-    {
-      name: 'address',
-      index: 'address',
-      // width: '200px',
-      render: (v: any) => <b style={{ color: 'cyan' }}>{v.substr(0, 20)}......</b>
-    },
-  ]
-
   const loadMoreItems = useCallback(() => {
     setTableState(state => ({ ...state, isNextPageLoading: true }))
 
@@ -53,10 +28,9 @@ const Entry = () => {
         isNextPageLoading: false,
         items: [...state.items].concat(
           new Array(10).fill(true).map(() => ({
-            lastName: faker.person.lastName(),
-            firstName: faker.person.firstName(),
-            fullName: faker.person.fullName(),
-            address: faker.finance.ethereumAddress()
+            icon: faker.image.urlLoremFlickr({ width: 32, height: 32 }),
+            symbol: faker.person.firstName(),
+            amount: faker.number.float({ min: 0, max: 100, fractionDigits: 3 })
           }))
         )
       }));
@@ -66,9 +40,14 @@ const Entry = () => {
   return (
     <div style={{ width: 'calc(100vw - 32px)' }}>
       <InfiniteTable
-        columns={columns}
         itemCount={10}
-        gridTemplateColumns={['auto', '1fr', '1fr', '1fr']}
+        customItem={(v) => {
+          console.info(v)
+          return <>
+            <Logo radius={'10px'} size={40} src={v?.data?.icon}/>
+            {v?.data?.symbol} && {v?.data?.amount}
+          </>
+        }}
         hasNextPage={tableState.hasNextPage}
         isNextPageLoading={tableState.isNextPageLoading}
         loadNextPage={loadMoreItems}

@@ -10,7 +10,7 @@ import CTableBody from "./TableBody";
 import CTableBodyTr from "./TableBodyTr";
 import CTableThead from "./TableHead";
 
-const InfiniteTable = (
+const  InfiniteTable = (
   {
     data,
     color,
