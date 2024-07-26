@@ -1,4 +1,4 @@
-import InfiniteTable from "./index";
+import InfiniteWrapper from "./index";
 import { useCallback, useState } from "react";
 import { faker } from "@faker-js/faker";
 import Logo from "../Logo/Logo";
@@ -39,14 +39,14 @@ const Entry = () => {
 
   return (
     <div style={{ width: 'calc(100vw - 32px)' }}>
-      <InfiniteTable
+      <InfiniteWrapper
         itemCount={10}
         customItem={(v) => {
           console.info(v)
-          return <>
+          return <div>
             <Logo radius={'10px'} size={40} src={v?.data?.icon}/>
             {v?.data?.symbol} && {v?.data?.amount}
-          </>
+          </div>
         }}
         hasNextPage={tableState.hasNextPage}
         isNextPageLoading={tableState.isNextPageLoading}

@@ -48,19 +48,21 @@ const Container = styled.div<{ $color?: string[], $radius?: number, $height?: nu
 
 export interface TokenSkeletonProps {
   color?: string[];
+  radius?: number;
   loading?: boolean;
   className?: string;
   animation?: boolean;
 }
 
 function Skeleton(props: PropsWithChildren<TokenSkeletonProps>) {
-  const { loading = true, color, children, className, animation } = props;
+  const { loading = true, color, radius, children, className, animation } = props;
 
   return (
     <>
       {loading ? (
         <Container
           $color={color}
+          $radius={radius}
           className={cls(
             "skeleton",
             { "skeleton-animate": animation },

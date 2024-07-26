@@ -8,7 +8,7 @@ import { InfiniteWrapperProps } from "./interface";
 import { Container, Table } from "./styled";
 import CTableBody from "./TableBody";
 
-const InfiniteTable = (
+const InfiniteWrapper = (
   {
     data,
     itemCount = 10,
@@ -74,4 +74,4 @@ const InfiniteTable = (
     </Measure>)
 }
 
-export default InfiniteTable
+export default InfiniteWrapper
