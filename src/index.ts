@@ -13,6 +13,7 @@ import InfiniteWrapper from "./components/InfiniteWrapper";
 import HideString from "./components/HideString";
 import MagicText from "./components/MagicText";
 import { useSmoothScrollTo } from "./hooks/useSmoothScrollTo";
+import { atoh, htoa } from "./utils/index";
 
 export type { MagicTextProps } from "./components/MagicText/interface";
 export type { HideStringProps } from "./components/HideString/interface";
@@ -30,6 +31,8 @@ export type { GroupProps, LogoProps } from "./components/Logo/interface";
 export type { TokenSkeletonProps } from "./components/TokenSkeleton";
 
 export {
+  atoh,
+  htoa,
   Copy,
   OGP,
   Logo,
@@ -45,6 +48,6 @@ export {
   useSmoothScrollTo,
   OGPProvider,
   InfiniteTable,
-  InfiniteWrapper
+  InfiniteWrapper,
 };
 
