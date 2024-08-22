@@ -11,7 +11,7 @@ const C = styled.div`
   }
 `
 
-const Copy = ({ text, width, height, fill1, fill2, stroke1, stroke2 }: CopyProps) => {
+const Copy = ({ text, width, height, fill1, fill2, stroke1, stroke2, onCopy }: CopyProps) => {
   const [v, setV] = useState<boolean>(false)
 
   useEffect(() => {
@@ -26,7 +26,10 @@ const Copy = ({ text, width, height, fill1, fill2, stroke1, stroke2 }: CopyProps
   return (text ?
       <CopyToClipboard
         text={text}
-        onCopy={() => setV(true)}>
+        onCopy={() => {
+          setV(true)
+          onCopy?.()
+        }}>
         <C>
           {!v
             ? <CopySvg
