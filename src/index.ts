@@ -5,6 +5,7 @@ import Countdown from "./components/Countdown";
 import OGP, { OGPProvider } from "./components/OGP";
 import Video from "./components/Video";
 import Loading from "./components/Loading";
+import Skeleton from "./components/Skeleton";
 import TokenSkeleton from "./components/TokenSkeleton";
 import Logo from "./components/Logo/out";
 import Copy from "./components/Copy";
@@ -28,6 +29,7 @@ export type { FormatAmountProps } from "./components/FormatAmount/interface";
 export type { OGPProps } from "./components/OGP/interface";
 export type { LoadingProps } from "./components/Loading/interface";
 export type { GroupProps, LogoProps } from "./components/Logo/interface";
+export type { SkeletonProps } from "./components/Skeleton/interface";
 export type { TokenSkeletonProps } from "./components/TokenSkeleton";
 
 export {
@@ -44,6 +46,7 @@ export {
   HideString,
   MagicText,
   FormatAmount,
+  Skeleton,
   TokenSkeleton,
   useSmoothScrollTo,
   OGPProvider,
