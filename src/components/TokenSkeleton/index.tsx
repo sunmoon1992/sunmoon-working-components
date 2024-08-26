@@ -1,5 +1,6 @@
 import cls from "classnames";
 
+import { times } from "lodash";
 import { PropsWithChildren } from "react";
 
 import styled from "styled-components";
@@ -47,6 +48,7 @@ const Container = styled.div<{ $color?: string[], $radius?: number, $height?: nu
 `;
 
 export interface TokenSkeletonProps {
+  rows?: number
   color?: string[];
   radius?: number;
   loading?: boolean;
@@ -55,7 +57,7 @@ export interface TokenSkeletonProps {
 }
 
 function Skeleton(props: PropsWithChildren<TokenSkeletonProps>) {
-  const { loading = true, color, radius, children, className, animation } = props;
+  const { rows, loading = true, color, radius, children, className, animation } = props;
 
   return (
     <>
@@ -69,7 +71,7 @@ function Skeleton(props: PropsWithChildren<TokenSkeletonProps>) {
             className,
           )}
         >
-          <SkeletonRows />
+          <SkeletonRows rows={rows}/>
         </Container>
       ) : (
         children
@@ -80,11 +82,12 @@ function Skeleton(props: PropsWithChildren<TokenSkeletonProps>) {
 
 export default Skeleton;
 
-const SkeletonRows = () => {
+const SkeletonRows = ({ rows = 2 }: { rows?: number }) => {
   return (
     <div className='skeleton-rows'>
-      <span className="skeleton-row"/>
-      <span className="skeleton-row"/>
+      {times(rows, function (i) {
+        return (<span className="skeleton-row" key={i}/>)
+      })}
     </div>
   );
 }
