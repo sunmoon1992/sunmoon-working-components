@@ -12,4 +12,5 @@ export interface StatisticProps {
   countFrom?: number;
   className?: string | string[];
   precision?: number;
+  customFormatFn?: (n: number | string) => string
 }

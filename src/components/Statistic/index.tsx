@@ -6,12 +6,13 @@ import numeral from "numeral";
 import { StatisticProps } from "./interface";
 
 function Statistic({
-  value = 0,
-  format = "0,0.00",
-  proceed,
-  duration = 2000,
-  countFrom: from = 0,
-}: StatisticProps) {
+                     value = 0,
+                     format = "0,0.00",
+                     proceed,
+                     duration = 2000,
+                     countFrom: from = 0,
+                     customFormatFn
+                   }: StatisticProps) {
   const r = useRef<number | string>(0);
 
   const tween = useRef<typeof BTween>();
@@ -49,8 +50,8 @@ function Statistic({
   };
 
   const memoValue = useMemo(() => {
-    return numeral(tweenValue ?? 0).format(format);
-  }, [tweenValue]);
+    return customFormatFn ? customFormatFn(tweenValue ?? 0) : numeral(tweenValue ?? 0).format(format);
+  }, [tweenValue, customFormatFn]);
 
   useEffect(() => {
     if (tween.current) {
