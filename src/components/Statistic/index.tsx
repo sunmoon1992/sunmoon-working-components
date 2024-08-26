@@ -5,19 +5,20 @@ import numeral from "numeral";
 
 import { StatisticProps } from "./interface";
 
-function Statistic({
-                     value = 0,
-                     format = "0,0.00",
-                     proceed,
-                     duration = 2000,
-                     countFrom: from = 0,
-                     customFormatFn
-                   }: StatisticProps) {
+function Statistic(
+  {
+    value = 0,
+    format = "0,0.00",
+    proceed,
+    duration = 2000,
+    countFrom: from = 0,
+    customFormatFn
+  }: StatisticProps) {
   const r = useRef<number | string>(0);
 
   const tween = useRef<typeof BTween>();
 
-  const [tweenValue, setTweenValue] = useState<string | number>(value);
+  const [tweenValue, setTweenValue] = useState<string | number | undefined>(value);
 
   const counter = () => {
     const to = value;
@@ -50,7 +51,8 @@ function Statistic({
   };
 
   const memoValue = useMemo(() => {
-    return customFormatFn ? customFormatFn(tweenValue ?? 0) : numeral(tweenValue ?? 0).format(format);
+    if (customFormatFn) return customFormatFn(tweenValue ?? 0)
+    return numeral(tweenValue ?? 0).format(format);
   }, [tweenValue, customFormatFn]);
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Statistic from "../components/Statistic";
+import numeral from "numeral";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -11,7 +12,7 @@ const meta = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  args: { value: 10000 },
+  args: { value: 10000000000000 },
 } satisfies Meta<typeof Statistic>;
 
 export default meta;
@@ -25,7 +26,14 @@ export const Base: Story = {
 };
 export const Proceed: Story = {
   args: {
-    format: "0,0.00",
-    proceed: true,
+    customFormatFn:function F(num: number): string {
+      if (num >= 1000000) {
+        return `${numeral(((num / 1000000) * 100) / 100).format("0,")}M`;
+      } else if (num >= 1000) {
+        return `${numeral(((num / 1000) * 100) / 100).format("0,")}K`;
+      } else {
+        return num.toString();
+      }
+    }
   },
 };
