@@ -16,11 +16,11 @@ const f = (value: string, decimal = 8): string => {
   return output.replace(regexp, "$1");
 };
 
-const FormatAmount = ({ amount, decimals = 8, format, local }: FormatAmountProps) => {
+const FormatAmount = ({ unit,amount, decimals = 8, format, local }: FormatAmountProps) => {
   return useMemo(
     () => (
       <span className={"format-amount"}>
-        {format ? numeral(amount).format(format) : Number(amount) === 0 ? "0.00" : o(amount, decimals, local)}
+        {unit}{format ? numeral(amount).format(format) : Number(amount) === 0 ? "0.00" : o(amount, decimals, local)}
       </span>
     ),
     [format, amount],
