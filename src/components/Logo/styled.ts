@@ -19,8 +19,8 @@ export const _Logo = styled.div<{ $size?: number, $radius: string, $zIndex: numb
   display: flex;
   border-radius: ${(props) => props?.$radius || '100%'};
   border-width: ${(props) => props?.$border ? 2 : 0}px;
-  border-color: ${(props) => props?.$borderColor ?? '#222'};
-  background-color: ${(props) => props?.$bColor ?? '#222'};
+  border-color: ${(props) => props?.$borderColor ?? 'transparent'};
+  background-color: ${(props) => props?.$bColor ?? 'transparent'};
   border-style: solid;
   box-sizing: border-box;
   overflow: hidden;
