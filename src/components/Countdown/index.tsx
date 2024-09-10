@@ -15,7 +15,7 @@ dayjs.extend(duration);
 const T = styled.time`
   gap: 4px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
   em,
   small {
@@ -23,6 +23,7 @@ const T = styled.time`
     font-size: 12px;
     font-style: normal;
   }
+
   small {
     min-width: 24px;
   }
@@ -30,12 +31,13 @@ const T = styled.time`
 const init = ["00", "00", "00", "00", "00", "0"];
 const now = dayjs();
 const Countdown = ({
-  start,
-  end,
-  unit = ["d", "hr", "min", "sec"],
-  interval = 1_000,
-  ...props
-}: CountdownProps) => {
+                     start,
+                     end,
+                     unit = ["d", "hr", "min", "sec"],
+                     interval = 1_000,
+                     millisecondsDivider = true,
+                     ...props
+                   }: CountdownProps) => {
   const timerRef = useRef<any>(null);
 
   const [timeLabel, setTimeLabel] = useState<string>("");
@@ -126,30 +128,30 @@ const Countdown = ({
         )}
         {Number(estimatedTime[0]) > 0 && (
           <>
-            <span>
+            <span className="countdown-time-item">
               {estimatedTime[0]}
               <em>{unit?.[0]}</em>
             </span>
-            :
+            <Divider/>
           </>
         )}
-        <span>
+        <span className="countdown-time-item">
           {estimatedTime[1]}
           <em>{unit?.[1]}</em>
         </span>
-        :
-        <span>
+        <Divider/>
+        <span className="countdown-time-item">
           {estimatedTime[2]}
           <em>{unit?.[2]}</em>
         </span>
-        :
-        <span>
+        <Divider/>
+        <span className="countdown-time-item">
           {estimatedTime[3]}
           <em>{unit?.[3]}</em>
         </span>
         {props?.showMilliseconds && Number(estimatedTime[5]) > 0 && (
           <>
-            <small>{estimatedTime[4]}</small>
+            {millisecondsDivider && <Divider/>}<small>{estimatedTime[4]}</small>
           </>
         )}
       </T>
@@ -159,3 +161,19 @@ const Countdown = ({
 };
 
 export default Countdown;
+
+const D = styled.span`
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+
+  i {
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+    background: #888;
+  }
+`
+const Divider = () => {
+  return <D className={'countdown-time-divider'}><i/><i/></D>
+}

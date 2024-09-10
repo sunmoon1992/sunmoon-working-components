@@ -21,12 +21,12 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Demo1: Story = {
   args: {
-    end: N + 10 * 1000,
-    start: N + 5 * 1000,
-    interval: 1000,
+    end: N + 10 * 100000,
+    start: N + 5 * 1000000,
+    interval: 25,
     notStartText: "未开始",
     deadlineText: "截止",
-    showMilliseconds: false,
+    showMilliseconds: true,
     onProgress: (v) => console.info(v),
     onFinished: (v) => console.info(v),
   },

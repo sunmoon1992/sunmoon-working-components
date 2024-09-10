@@ -7,6 +7,7 @@ export interface CountdownProps {
   deadlineText?: string;
   interval?: number;
   showMilliseconds?: boolean;
+  millisecondsDivider?: boolean;
   unit?: string[];
   extraNode?: React.ReactNode;
   onFinished?: (p: boolean) => void;
