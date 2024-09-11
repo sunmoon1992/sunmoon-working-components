@@ -28,7 +28,7 @@ const T = styled.time`
     min-width: 24px;
   }
 `;
-const init = ["00", "00", "00", "00", "00", "0"];
+const init = ["00", "00", "00", "00", "000", "0"];
 const now = dayjs();
 const Countdown = ({
                      start,
