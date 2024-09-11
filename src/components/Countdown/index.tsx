@@ -149,7 +149,7 @@ const Countdown = ({
           {estimatedTime[3]}
           <em>{unit?.[3]}</em>
         </span>
-        {props?.showMilliseconds && Number(estimatedTime[5]) > 0 && (
+        {props?.showMilliseconds && (
           <>
             {millisecondsDivider && <Divider/>}<small>{estimatedTime[4]}</small>
           </>
