@@ -11,6 +11,7 @@ import Logo from "./components/Logo/out";
 import Copy from "./components/Copy";
 import InfiniteTable from "./components/InfiniteTable";
 import InfiniteWrapper from "./components/InfiniteWrapper";
+import SimulateVideoPlayback from "./components/SimulateVideoPlayback";
 import HideString from "./components/HideString";
 import MagicText from "./components/MagicText";
 import { useSmoothScrollTo } from "./hooks/useSmoothScrollTo";
@@ -30,7 +31,8 @@ export type { OGPProps } from "./components/OGP/interface";
 export type { LoadingProps } from "./components/Loading/interface";
 export type { GroupProps, LogoProps } from "./components/Logo/interface";
 export type { SkeletonProps } from "./components/Skeleton/interface";
-export type { TokenSkeletonProps } from "./components/TokenSkeleton";
+export type { TokenSkeletonProps } from "./components/TokenSkeleton/interface";
+export type { SimulateVideoPlaybackProps } from "./components/SimulateVideoPlayback/interface";
 
 export {
   atoh,
@@ -52,5 +54,6 @@ export {
   OGPProvider,
   InfiniteTable,
   InfiniteWrapper,
+  SimulateVideoPlayback,
 };
 

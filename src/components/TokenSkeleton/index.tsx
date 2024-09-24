@@ -4,6 +4,7 @@ import { times } from "lodash";
 import { PropsWithChildren } from "react";
 
 import styled from "styled-components";
+import { TokenSkeletonProps } from "./interface";
 
 const base = {
   c1: "#333333",
@@ -47,14 +48,6 @@ const Container = styled.div<{ $color?: string[], $radius?: number, $height?: nu
   }
 `;
 
-export interface TokenSkeletonProps {
-  rows?: number
-  color?: string[];
-  radius?: number;
-  loading?: boolean;
-  className?: string;
-  animation?: boolean;
-}
 
 function Skeleton(props: PropsWithChildren<TokenSkeletonProps>) {
   const { rows, loading = true, color, radius, children, className, animation } = props;
