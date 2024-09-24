@@ -1,12 +1,13 @@
 ###For React Components
-- CheckCard\
-- Copy\
-- Countdown\
-- FormatAmount\
-- HideString\
-- InfiniteTable\
-- InfiniteWrapper\
-- Logo\
-- MagicText\
-- Statistic\
-- TokenSkeleton\
+- CheckCard
+- Copy
+- Countdown
+- FormatAmount
+- HideString
+- InfiniteTable
+- InfiniteWrapper
+- Logo
+- MagicText
+- Statistic
+- TokenSkeleton
+- SimulateVideoPlayback (Use pictures to simulate video playback)
