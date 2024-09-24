@@ -12,4 +12,6 @@
 - TokenSkeleton
 - SimulateVideoPlayback (Use pictures to simulate video playback)
 
-https://github.com/sunmoon1992/sunmoon-working-components.git
+ ```you can run this with storybook```
+
+ https://github.com/sunmoon1992/sunmoon-working-components.git
