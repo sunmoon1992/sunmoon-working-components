@@ -4,6 +4,7 @@
 import fs from 'fs'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import ora from 'ora'
 import path from 'path'
 import async from 'async'
 import sharp from 'sharp'
@@ -31,7 +32,8 @@ function checkDir(path, callback) {
   })
 }
 
-function sharp(callback) {
+function f2(callback) {
+  const spinner = ora('sharp images').start();
   function _() {
     files0.forEach((file, i) => {
       sharp(`${ base0 }/${ file }`)
@@ -40,10 +42,8 @@ function sharp(callback) {
           if (err) {
             throw err
           } else {
-            console.info(`${ file }`, 'sharp 🆗')
             if (i === files0.length - 1) {
-              console.info('********************')
-              console.info('********************')
+              spinner.succeed('sharp images 🆗')
               callback(null)
             }
           }
@@ -54,22 +54,22 @@ function sharp(callback) {
   checkDir(base1, _)
 }
 
-function append(callback) {
+function f3(callback) {
+  const spinner = ora('append images').start();
   fs.writeFileSync(base2, '')
   files1.forEach((file, i) => {
     const [num] = file.split('.')
     fs.appendFileSync(base2, `import i${ num } from "./tiny/${ file }"\n`)
-    console.info(`${ file }`, 'append 🆗')
     if (i === files1.length - 1) {
-      console.info('********************')
-      console.info('********************')
+      spinner.succeed('append images 🆗')
       callback(null)
     }
   })
 }
 
-function output(callback) {
+function f4(callback) {
   let output = []
+  const spinner = ora('export images').start();
   const names = fs.readFileSync(base2, { encoding: 'utf8' }).split('\n')
   names.forEach((n, i) => {
     const [, o] = n.split(' ')
@@ -77,11 +77,11 @@ function output(callback) {
   })
   const _output = output.map((r) => r && r.replace('i', '')).sort((a, b) => a - b)
   const __output = _output.map((r) => r && `i${ r }`)
-  fs.appendFile(base2, `export const imgs = [${ __output }]`, (err) => {
+  fs.appendFile(base2, `export const images = [${ __output }]`, (err) => {
     if (err) {
       throw err
     } else {
-      console.info('export append 🆗')
+      spinner.succeed('export images 🆗')
       callback(null)
     }
   })
@@ -89,12 +89,12 @@ function output(callback) {
 
 function main() {
   async.waterfall([
-    sharp,
-    append,
-    output
+    f2,
+    f3,
+    f4
   ], function(err) {
     if (err) throw err
-    console.info('All tasks completed 🎉')
+    console.info('all tasks completed 🎉')
   })
 }
 
